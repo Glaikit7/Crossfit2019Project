@@ -61,6 +61,23 @@ men_df = df[df['division'] == 'Men']
 
 women_df = df[df['division'] == 'Women']
 
+# Calculates mean height and st.dev for men's and women's divisions
+def summarise_height(df):
+    avg = np.mean(df['height'])
+    std = np.std(df['height'])
+    return 'The mean height is {}m, with a standard deviation of {:.2f}'.format(avg, std)
+
+def summarise_weight(df):
+    avg = np.mean(df['weight'])
+    std = np.std(df['weight'])
+    return 'The mean weight is {}m, with a standard deviation of {:.2f}'.format(avg, std)
+
+
+avg_weight_men = np.mean(men_df['weight'])
+avg_weight_women = np.mean(women_df['weight'])
+
+
+
 # This creates grouped summaries correlating height/weight with overall rank
 menheight_df = men_df.groupby('height')['overallrank'].mean()
 
